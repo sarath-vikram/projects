@@ -1,0 +1,93 @@
+{% load static %}
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-inner slimscroll">
+       <div id="sidebar-menu" class="sidebar-menu">
+          <ul>
+             <li class="menu-title">
+                <span>Main Menu</span>
+             </li>
+             <li>
+                <a href="{% url 'admin_home' %}"><i class="fa fa-list"></i> <span>Dashboard</span></a>
+             </li>
+             <li class="submenu">
+                <a href="#"><i class="fa fa-user"></i> <span>Managers</span> <span class="menu-arrow"></span></a>
+                <ul>
+                   <li><a href="students.html">Add Managers</a></li>
+                   <li><a href="student-details.html">View Managers</a></li>
+                   
+                </ul>
+             </li>
+             <li class="submenu">
+                <a href="#"><i class="fa fa-user"></i> <span>Staffs</span> <span class="menu-arrow"></span></a>
+                <ul>
+                   <li><a href="students.html">Add Staffs</a></li>
+                   <li><a href="student-details.html">View Staffs</a></li>
+                   
+                </ul>
+             </li>
+             <li class="submenu">
+                <a href="#"><i class="fa fa-user"></i> <span>Customers</span> <span class="menu-arrow"></span></a>
+                <ul>
+                   <li><a href="students.html">Add Customers</a></li>
+                   <li><a href="student-details.html">View Customers</a></li>
+                   
+                </ul>
+             </li>
+             <li class="submenu">
+                <a href="#"><i class="fa fa-user"></i> <span>Suppliers</span> <span class="menu-arrow"></span></a>
+                <ul>
+                   <li><a href="{% url 'add_supplier' %}">Add Suppliers</a></li>
+                   <li><a href="{% url 'view_supplier' %}">View Suppliers</a></li>
+                   
+                </ul>
+             </li>
+             <li class="submenu">
+               <a href="#"><i class="fab fa-product-hunt"></i></i> <span>Category</span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="{% url 'add_category' %}">Add Category</a></li>
+                  <li><a href="{% url 'view_category' %}">View Category</a></li>
+                  
+               </ul>
+            </li> 
+
+            <li class="submenu">
+               <a href="#"><i class="fab fa-product-hunt"></i><span>Brand</span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="{% url 'add_brand' %}">Add Brand</a></li>
+                  <li><a href="{% url 'view_brand' %}">View Brand</a></li>
+                  
+               </ul>
+            </li> 
+             <li class="submenu">
+                <a href="#"><i class="fab fa-product-hunt"></i><span>Product</span> <span class="menu-arrow"></span></a>
+                <ul>
+                   <li><a href="{% url 'add_product' %}">Add Product</a></li>
+                   <li class="submenu">
+                     <a href="#">View Product <span class="menu-arrow"></span></a>
+                     <ul>
+                        
+                        <li><a href="{% url 'view_product' %}">All</a></li>
+                        {% for i in category %}
+                        <li><a href="{% url 'view_product' %}?category={{i.id}}">{{i.name}}</a></li>
+                        {% endfor %}
+                        
+                     </ul>
+                  </li>
+                   
+                </ul>
+             </li> 
+             <li>
+                <a href=""><i class="fa fa-key"></i> <span>Change Password</span></a>
+             </li>
+             <li>
+                <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a>
+             </li>
+             
+             
+             
+                </ul>
+             </li>
+          </ul>
+       </div>
+    </div>
+ </div>

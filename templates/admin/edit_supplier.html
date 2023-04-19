@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-12">
+       <div class="card">
+          <div class="card-body">
+              {% if messages %}
+              {% for message in messages %}
+              {% if message.tags == 'info' %}
+              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                  {{message}}
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+               </div>
+               {% endif %}
+               {% endfor %}
+               {% endif %} 
+             <form method="post" action="{% url 'update_supplier' %}">
+              {% csrf_token %}
+                <div class="row">
+                   
+                   <div class="col-8 ">
+                      <div class="form-group">
+                         <label>Supplier Name Updation</label>
+                         <input type="text" class="form-control" value="{{supplier.name}}" name="name">
+                         <input type="text" class="form-control" value="{{supplier.id}}" name="supplier_id" hidden>
+                      </div>
+                   </div>
+                   
+                   <div class="col-8 ">
+                    <div class="form-group">
+                       <label>Supplier Contact Updation</label>
+                       <input type="text" class="form-control" value="{{supplier.mobile_sup}}" name="mobile_sup">
+                       
+                    </div>
+                 </div>
+                   <div class="col-12">
+                      <button type="submit" class="btn btn-primary">Update Supplier</button>
+                   </div>
+                </div>
+             </form>
+          </div>
+       </div>
+    </div>
+ </div>
+
+
+{% endblock %}
